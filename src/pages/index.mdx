@@ -1,0 +1,54 @@
+---
+
+layout: '../layouts/Page.astro'
+
+title: 'Home-welcome to the blog site'
+
+description: 'Welcome to nemanjamitic.com'
+
+---
+import { getAllPostsWithReadingTime } from '@/modules/post/common';
+import PostList from '@/components/PostList.astro';
+import { CONFIG_CLIENT } from '@/config/client';
+
+import { Icon } from 'astro-icon/components';
+import Link from '@/components/Link.astro';
+
+export const allPosts = await getAllPostsWithReadingTime();
+export const recentPosts = allPosts.slice(0, 4);
+
+[//]: # (import { Image } from 'astro:assets';)
+
+[//]: # (import { IMAGE_SIZES } from '../constants/image';)
+
+[//]: # (import River10Image from '../assets/images/all-images/river10.jpg';)
+
+
+
+# Hello and welcome
+
+
+
+[//]: # (<Image {...IMAGE_SIZES.FIXED.MDX_MD} src={River10Image} alt="Fishing spot" />)
+
+
+
+Welcome to [Blog Name], your trusted guide to discovering the tech tools that make life better. Whether you're looking to streamline your work, boost personal productivity, or simply add more ease and enjoyment to your day, we're here to help.
+
+Our mission is to uncover and share the best technology that simplifies life, empowers work, and brings a bit of happiness to your routine. From innovative apps that keep you organized to gadgets that spark joy, we’re passionate about finding the tools that truly make a difference.
+
+Whatever your goals—whether you're a professional, an entrepreneur, or just curious about the latest tech—we’re here to guide you to the tools that can transform your day-to-day experience.
+## Latest Posts
+<PostList posts={recentPosts} />
+
+
+
+<div class="text-right">
+  <Link
+    href="/blog"
+    class="inline-flex items-center gap-1 text-base font-medium"
+  >
+    <span class="text-nowrap text-xl">All Posts</span>
+    <Icon name="arrow-right" class="w-4 h-4" />
+  </Link>
+</div>

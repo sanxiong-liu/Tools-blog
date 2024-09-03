@@ -1,0 +1,52 @@
+---
+layout: '../layouts/Page.astro'
+title: 'customize About page title'
+description: 'About me page'
+---
+import { Image } from "astro:assets";
+
+import groupImage from "../assets/images/all-images/group.jpg";
+import manImage from "../assets/images/all-images/man.jpg";
+import womanImage from "../assets/images/all-images/woman.jpg";
+
+<div class="flex flex-col md:flex-row items-center justify-between gap-6 mb-10">
+  <div class="w-full md:w-2/5 mb-8 md:mb-0">
+    <Image src={groupImage} alt="Tech People Team" class="w-full h-auto rounded-lg"/>
+  </div>
+  <div class="w-full md:w-3/5">
+    <h2 class="text-3xl font-extrabold text-gray-900 mt-4 mb-4">Who We Are</h2>
+    <p class="text-gray-700 leading-relaxed mb-6">
+      We’re the team behind [Blog Name], united by a passion for exploring technology that enhances everyday life and work. Our mission is to bring you the best tools to make your days more efficient, enjoyable, and productive.
+    </p>
+  </div>
+</div>
+
+<div class="mt-5">
+  <h2 class="text-2xl font-extrabold text-gray-900 mt-5 mb-5 text-center">Our Team</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+      <Image src={manImage} alt="John Doe" class="w-full h-auto mt-1 mb-1"/>
+      <div class="p-4 space-y-4">
+        <div>
+          <h3 class="text-2xl font-bold text-gray-800 mt-1 mb-1">Sophie Lane</h3>
+          <p class="text-lg font-medium text-indigo-600">Content Strategist</p>
+        </div>
+        <p class="text-base text-gray-600 leading-relaxed">
+          Ethan curates the most innovative tools and guides our tech content, ensuring that [Blog Name] features the best solutions for your needs.
+        </p>
+      </div>
+    </div>
+    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+      <Image src={womanImage} alt="Jane Smith" class="w-full h-auto mt-1 mb-1"/>
+      <div class="p-4 space-y-4">
+        <div>
+          <h3 class="text-2xl font-bold text-gray-800 mt-1 mb-1">Sophie Lane</h3>
+          <p class="text-lg font-medium text-indigo-600">Content Strategist</p>
+        </div>
+        <p class="text-base text-gray-600 leading-relaxed">
+          Sophie drives our content strategy, focusing on delivering clear, actionable insights that help you integrate tech tools seamlessly into your life.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+---
+import BuyMeACoffee_img from '../content/post/_images/buy-me-coffee-buttons(no-background)_1.png';
+import {Image} from "astro:assets"
+---
+
+<div style="border: 1px solid #ffd700; background-color: #fff8dc; padding: 10px; border-radius: 4px; font-size: 14px;">
+  <strong>Support Our Work</strong><br />
+  <p style="margin: 0; font-style: italic">
+    If you've found our content helpful, consider buying us a coffee! Your support helps us create more valuable resources and keep them freely accessible. Every contribution, no matter how small, makes a big difference. Click the button below to show your appreciation and fuel our next article!
+  </p>
+  <a href="https://buymeacoffee.com/" target="_blank" rel="noopener noreferrer" style="display: inline-block; margin-top: 0; margin-bottom: 0; !important">
+    <Image src={BuyMeACoffee_img} alt="Buy Me A Coffee" style="height: 60px; width: 217px; margin: 5px 0;" />
+  </a>
+</div>

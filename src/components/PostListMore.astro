@@ -1,0 +1,31 @@
+---
+import PostCardMore from '@/components/PostCardMore.astro';
+import { cn } from '@/utils/styles';
+
+import type { Post } from '@/types/post';
+import type { HTMLAttributes } from 'astro/types';
+
+export interface Props extends HTMLAttributes<'div'> {
+  morePosts: Post[];
+  isRandom: boolean;
+}
+
+const { morePosts, isRandom, class: className } = Astro.props;
+---
+
+{morePosts.length > 0 && (
+<div class={cn(className)}>
+  <h2 class="b-h2 mt-0">{isRandom ? "More posts:" : "Enjoyed reading this post? Here's more on the topic:"}</h2>
+  <ul class={`grid gap-6 ${
+    morePosts.length === 1 ? 'grid-cols-1' :
+      morePosts.length === 2 ? 'grid-cols-1 sm:grid-cols-2' :
+        'grid-cols-1 sm:grid-cols-2 md:grid-cols-3'
+  }`}>
+    {morePosts.map((post) => (
+      <li>
+        <PostCardMore {post} />
+      </li>
+    ))}
+  </ul>
+</div>
+  )}

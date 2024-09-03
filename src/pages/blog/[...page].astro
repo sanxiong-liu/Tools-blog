@@ -1,0 +1,44 @@
+---
+import { getAllPostsWithReadingTime } from '@/modules/post/common';
+import List from '@/layouts/List.astro';
+import PostList from '@/components/PostList.astro';
+import { CONFIG_CLIENT } from '@/config/client';
+import { getPageMetadata } from '@/utils/metadata';
+import { pickPaginationPropsFromPage } from '@/utils/pagination';
+
+import type { Post } from '@/types/post';
+import type { GetStaticPathsOptions } from 'astro';
+
+// [page].astro and getStaticPaths because of pagination
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+  const posts: Post[] = await getAllPostsWithReadingTime();
+  const pageSize = CONFIG_CLIENT.PAGE_SIZE_POST_CARD; // must take entire config here, interesting
+
+  const pagination = paginate(posts, { pageSize });
+  pagination.push({ params: { page: '1' }, props: pagination[0].props });
+  return pagination;
+}
+
+// page from pagination
+const { page } = Astro.props;
+const { data: posts } = page;
+
+const paginationProps = pickPaginationPropsFromPage(page);
+
+const metadata = getPageMetadata('lists/blog');
+
+// const layoutProps = { metadata, paginationProps };
+const customHeading = "Custom h1 heading for the all blog page"; // Custom <h1> text
+const customParagraph = "Custom paragraph for the all blog page"; // Custom paragraph text
+
+const customMetadata = {
+  title: 'Custom Blog Page Title',
+  description: 'Custom description for the blog listing page that will appear in search results.',
+};
+
+const layoutProps = { metadata: customMetadata, paginationProps, customHeading, customParagraph };
+---
+
+<List {...layoutProps}>
+  <PostList posts={posts} />
+</List>
