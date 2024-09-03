@@ -7,7 +7,7 @@ export const NAVIGATION_ITEMS = [
     path: ROUTES.BLOG,
   },
   {
-    title: 'Category',
+    title: 'Tags',
     path: ROUTES.EXPLORE,
   },
   // {

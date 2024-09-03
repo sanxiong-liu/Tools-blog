@@ -6,7 +6,7 @@ import DefaultProjectHeroImage from '@/assets/images/default/default-project-her
 
 export const COLLECTIONS = {
   POST: 'post',
-  PROJECT: 'project',
+  // PROJECT: 'project',
 } as const;
 
 export const TAGS = [
