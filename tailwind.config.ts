@@ -37,6 +37,14 @@ const config: Config = {
         'base-200': 'var(--th-base-200)',
         'base-300': 'var(--th-base-300)',
         'base-code': 'var(--th-base-code)',
+        // pagefind
+        bgaccent: "hsl(var(--theme-accent) / <alpha-value>)",
+        outlineaccent: "hsl(var(--theme-accent-2) / <alpha-value>)",
+        bgColor: "hsl(var(--theme-bg) / <alpha-value>)",
+        link: "hsl(var(--theme-link) / <alpha-value>)",
+        quote: "hsl(var(--theme-quote) / <alpha-value>)",
+        textColor: "hsl(var(--theme-text) / <alpha-value>)",
+
         // text
         content: 'var(--th-content)',
         headings: 'var(--th-headings)',

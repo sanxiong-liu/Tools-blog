@@ -26,11 +26,15 @@ export const CATEGORIES = [
   // add color here
   // extract find function
   {
-    name: 'tutorials',
+    name: 'test',
+    icon: 'tags',
+  },
+  {
+    name: 'ts',
     icon: 'teach',
   },
   {
-    name: 'tips-and-tricks',
+    name: 'test_1',
     icon: 'lightbulb-outline',
   },
   {

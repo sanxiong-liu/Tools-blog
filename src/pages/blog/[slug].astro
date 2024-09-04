@@ -14,6 +14,8 @@ import PostMeta from '@/components/PostMeta.astro';
 import Share from '@/components/Share.astro';
 import TableOfContents from '@/components/TableOfContents.astro';
 import TagList from '@/components/TagList.astro';
+import { getCategoryProps } from '@/modules/post/category';
+
 import { DRAFT_TEXT } from '@/constants/data';
 import { IMAGE_SIZES } from '@/constants/image';
 import { ROUTES } from '@/constants/routes';
@@ -59,6 +61,10 @@ const {
   views,
   related = [],
 } = data;
+
+const { icon: categoryIcon } = getCategoryProps(category);
+
+
 const { slug } = Astro.params;
 const { pathname } = Astro.url;
 
@@ -160,6 +166,7 @@ const metadata: Metadata = { title, description, image };
         href={`${ROUTES.CATEGORIES}${category}`}
         class="inline-flex items-center gap-2 bg-primary-base-200 font-medium px-2 py-0.5 rounded-button text-base"
       >
+        <Icon name={categoryIcon} class="w-4 h-4" />
         <span class="pb-0.5">{category}</span>
       </Link>
       <div class="flex items-center gap-2">

@@ -6,6 +6,7 @@ import clsx from 'clsx';
 
 import HeaderLink from '@/components/HeaderLink.astro';
 import ThemeToggle from '@/components/ThemeToggle.astro';
+import Search from '@/components/Search.astro';
 import { SELECTORS } from '@/constants/dom';
 import { IMAGE_SIZES } from '@/constants/image';
 import { NAVIGATION_ITEMS } from '@/constants/navigation';
@@ -80,6 +81,9 @@ const activeNavItemPath = getActiveNavItemPath(routePathname);
             </li>
           ))
         }
+        <li class="shrink-0">
+          <Search />
+        </li>
         <li class="shrink-0">
           <ThemeToggle />
         </li>

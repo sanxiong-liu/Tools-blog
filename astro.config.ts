@@ -17,7 +17,6 @@ import { sitemapIntegration } from './src/libs/integrations/sitemap';
 const { SITE_URL } = PROCESS_ENV;
 const remarkPlugins = [remarkReadingTime];
 
-import pagefind from "astro-pagefind";
 
 export default defineConfig({
   site: SITE_URL,
@@ -40,7 +39,7 @@ export default defineConfig({
     partytown({
       config: { forward: ['dataLayer.push'] },
     }),
-    pagefind(),
+
   ],
   markdown: { remarkPlugins },
   vite: {

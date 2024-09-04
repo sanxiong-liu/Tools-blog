@@ -27,11 +27,13 @@ const categoryLinks = getCategoryLinks(posts, filterPathname);
       ({ href, text, textWithCount, isActive }: FilterLink) => {
         const { icon } = getCategoryProps(text);
         const buttonProps = isActive ? ({ colors: 'primary', variant: 'solid' } as const) : {};
+        const [categoryText, count] = textWithCount.split(' ');
+        const formattedText = `${categoryText} (${count})`;
 
         return (
           <Button href={href} size="md" {...buttonProps}>
-            <!--<Icon name={icon} slot="before-icon" />-->
-            {textWithCount}
+            <Icon name={icon} slot="before-icon" />
+            {formattedText}
           </Button>
         );
       }
@@ -39,11 +41,16 @@ const categoryLinks = getCategoryLinks(posts, filterPathname);
   </FilterList>
   <FilterList itemLinks={tagLinks}>
     {
-      ({ href, textWithCount, isActive }: FilterLink) => (
-        <Tag href={href} size="md" colors={isActive ? 'primary' : 'default'}>
-          {textWithCount}
-        </Tag>
-      )
+      ({ href, textWithCount, isActive }: FilterLink) => {
+        const [tagText, count] = textWithCount.split(' ');
+        const formattedText = `${tagText} (${count})`;
+
+        return (
+          <Tag href={href} size="md" colors={isActive ? 'primary' : 'default'}>
+            {formattedText}
+          </Tag>
+        );
+      }
     }
   </FilterList>
 </section>
